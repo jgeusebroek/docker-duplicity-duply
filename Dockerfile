@@ -1,11 +1,11 @@
 FROM alpine:edge
 MAINTAINER Jeroen Geusebroek <me@jeroengeusebroek.nl>
 
-ENV PACKAGE_LIST="duplicity duply gnupg py-paramiko py-pexpect py-requests py-requests-oauthlib rsync openssh-client ncftp bash pwgen" \
+ENV PACKAGE_LIST="duplicity duply gnupg py-paramiko py-pexpect py-requests py-requests-oauthlib rsync openssh-client ncftp bash pwgen mariadb-client" \
     LANG='en_US.UTF-8' \
     LANGUAGE='en_US.UTF-8' \
     TIMEZONE='Europe/Amsterdam' \
-    REFRESHED_AT='2016-12-24' \
+    REFRESHED_AT='2016-12-26' \
 
     KEY_TYPE='RSA' \
     KEY_LENGTH='2048' \

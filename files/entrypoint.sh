@@ -1,5 +1,22 @@
 #!/bin/bash
 
+# Enforce permissions
+chmod 700 /root
+
+if [ -f /root/.duplicity_ad_oauthtoken.json ]; then
+  chmod 600 /root/.duplicity_ad_oauthtoken.json
+fi
+
+if [ -d /root/.gnupg ]; then
+  chmod 700 /root/.gnupg
+fi
+
+if [ -d /root/.duply ]; then
+  chmod 700 /root/.duply
+  find /root/.duply -type d -print0 | xargs -0 -I{} chmod 700 {}
+  find /root/.duply -type f -print0 | xargs -0 -I{} chmod 600 {}
+fi
+
 case "$1" in
     'amazon-oauth')
         exec setup_amazon_oauth.sh
@@ -29,11 +46,13 @@ case "$1" in
         %echo Created key with passphrase '$PASSPHRASE'. Please store this for later use.
 EOF
         gpg2 --batch --full-generate-key /tmp/key_params && rm /tmp/key_params
+        gpg --keyid-format short --list-secret-keys
         exit
         ;;
     'export-key')
         gpg2 --export -a
         gpg2 --export-secret-key -a
+        gpg --keyid-format short --list-secret-keys
         ;;
     '/bin/bash')
         exec cat << EOF

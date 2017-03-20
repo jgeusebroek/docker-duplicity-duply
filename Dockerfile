@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:latest
 MAINTAINER Jeroen Geusebroek <me@jeroengeusebroek.nl>
 
 ENV PACKAGE_LIST="duplicity duply gnupg py-paramiko py-pexpect py-requests py-requests-oauthlib rsync openssh-client lftp bash pwgen ca-certificates mariadb-client" \

@@ -45,7 +45,7 @@ case "$1" in
         %commit
         %echo Created key with passphrase '$PASSPHRASE'. Please store this for later use.
 EOF
-        gpg2 --batch --full-generate-key /tmp/key_params && rm /tmp/key_params
+        gpg2 --batch --full-gen-key /tmp/key_params && rm /tmp/key_params
         gpg --keyid-format short --list-secret-keys
         exit
         ;;

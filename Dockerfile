@@ -1,12 +1,12 @@
-FROM alpine:latest
+FROM alpine:3.5
 MAINTAINER Jeroen Geusebroek <me@jeroengeusebroek.nl>
 
-ENV PACKAGE_LIST="duplicity duply gnupg py-paramiko py-pexpect py-requests py-requests-oauthlib rsync openssh-client lftp bash pwgen ca-certificates mariadb-client" \
+ENV PACKAGE_LIST="duplicity duply gnupg py-paramiko py-pexpect py-requests py-requests-oauthlib rsync openssh-client lftp bash pwgen ca-certificates mariadb-client mc" \
     LANG='en_US.UTF-8' \
     LANGUAGE='en_US.UTF-8' \
     TIMEZONE='Europe/Amsterdam' \
-    REFRESHED_AT='2017-01-07' \
-
+    REFRESHED_AT='2017-12-08' \
+    \
     KEY_TYPE='RSA' \
     KEY_LENGTH='2048' \
     SUBKEY_TYPE='RSA' \
@@ -14,7 +14,7 @@ ENV PACKAGE_LIST="duplicity duply gnupg py-paramiko py-pexpect py-requests py-re
     NAME_REAL='Duply backup' \
     NAME_EMAIL='duply@localhost' \
     PASSPHRASE='random' \
-
+    \
     GPG_TTY='/dev/console'
 
 RUN apk add --no-cache ${PACKAGE_LIST} && \

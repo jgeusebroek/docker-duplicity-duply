@@ -3,10 +3,6 @@
 # Enforce permissions
 chmod 700 /root
 
-if [ -f /root/.duplicity_ad_oauthtoken.json ]; then
-  chmod 600 /root/.duplicity_ad_oauthtoken.json
-fi
-
 if [ -d /root/.gnupg ]; then
   chmod 700 /root/.gnupg
 fi
@@ -18,9 +14,6 @@ if [ -d /root/.duply ]; then
 fi
 
 case "$1" in
-    'amazon-oauth')
-        exec setup_amazon_oauth.sh
-        ;;
     'bash')
         exec bash
         ;;

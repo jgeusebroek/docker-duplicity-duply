@@ -62,9 +62,6 @@ Please specify a command:
   export-key
      Export the GPG key. Make sure you have the passphrase at hand.
 
-  amazon-oauth
-     Set up amazon cloud drive oauth
-
   usage
      Show duply's usage help.
 

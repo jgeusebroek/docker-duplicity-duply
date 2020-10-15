@@ -1,11 +1,11 @@
-FROM alpine:3.8
+FROM alpine:latest
 MAINTAINER Jeroen Geusebroek <me@jeroengeusebroek.nl>
 
-ENV PACKAGE_LIST="duplicity duply gnupg py-paramiko py2-pip py-pexpect py-requests py-requests-oauthlib rsync openssh-client lftp bash pwgen ca-certificates mariadb-client mc" \
+ENV PACKAGE_LIST="duplicity duply gnupg py-paramiko py3-pip py-pexpect py-requests py-requests-oauthlib rsync openssh-client lftp bash pwgen ca-certificates mariadb-client mc vim" \
     LANG='en_US.UTF-8' \
     LANGUAGE='en_US.UTF-8' \
     TIMEZONE='Europe/Amsterdam' \
-    REFRESHED_AT='2018-12-30' \
+    REFRESHED_AT='2020-10-15' \
     \
     KEY_TYPE='RSA' \
     KEY_LENGTH='2048' \

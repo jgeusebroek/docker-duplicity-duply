@@ -1,11 +1,10 @@
-FROM alpine:latest
-MAINTAINER Jeroen Geusebroek <me@jeroengeusebroek.nl>
+FROM alpine:3.18
+LABEL org.opencontainers.image.authors="Jeroen Geusebroek <me@jeroengeusebroek.nl>"
 
-ENV PACKAGE_LIST="duplicity duply gnupg py-paramiko py3-pip py-pexpect py-requests py-requests-oauthlib rsync openssh-client lftp bash pwgen ca-certificates mariadb-client mc vim" \
+ENV PACKAGE_LIST="duplicity duply gnupg py-paramiko py3-pip py3-pexpect py3-fasteners py-requests py-requests-oauthlib rsync openssh-client lftp bash pwgen ca-certificates mariadb-client mc vim" \
     LANG='en_US.UTF-8' \
     LANGUAGE='en_US.UTF-8' \
     TIMEZONE='Europe/Amsterdam' \
-    REFRESHED_AT='2020-10-15' \
     \
     KEY_TYPE='RSA' \
     KEY_LENGTH='2048' \
@@ -17,8 +16,7 @@ ENV PACKAGE_LIST="duplicity duply gnupg py-paramiko py3-pip py-pexpect py-reques
     \
     GPG_TTY='/dev/console'
 
-RUN apk add --no-cache ${PACKAGE_LIST} && \
-    pip install fasteners
+RUN apk add --no-cache ${PACKAGE_LIST}
 
 VOLUME [ "/root" ]
 
